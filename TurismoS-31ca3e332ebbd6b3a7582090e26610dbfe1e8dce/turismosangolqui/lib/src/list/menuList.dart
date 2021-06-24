@@ -28,22 +28,26 @@ class _MenuListState extends State<menusList> {
 
   @override
   Widget build(BuildContext context) {
+    
     return _MenusPri.length == 0? Container(
             child: Center(child: Text('Descargando Items')),
           ): 
           
           Container(
+            
             child: GestureDetector( //tocar
              onTap: (){
                
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Atractive_List(),
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Expanded(child: SingleChildScrollView(child: Atractive_List())) ,
         ));
              },
-          child: Column(
+             
+          child: Column( 
             // mainAxisAlignment : MainAxisAlignment.center,
             // crossAxisAlignment: CrossAxisAlignment.center,
               children:
-                  _MenusPri.map((e) =>ListTile(title :Text(e.name, style: Theme.of(context).textTheme.headline3) ,
+                  _MenusPri.map((e) =>ListTile(title :Text(e.name, style: Theme.of(context).textTheme.headline3),
+                  
                   
                   leading:Image.network((e.photo??""), width: 200, height: 200, fit: BoxFit.cover))).toList()),
         ));

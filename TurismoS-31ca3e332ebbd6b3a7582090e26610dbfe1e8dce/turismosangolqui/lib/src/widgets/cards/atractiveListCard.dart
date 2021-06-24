@@ -42,6 +42,7 @@ class _AtractiveListState extends State<Atractive_List> {
                       title: Text(e.name,
                           style: Theme.of(context).textTheme.headline3),
                       leading: Image.network((e.photo ?? ""),
+                      
                           width: 200, height: 200, fit: BoxFit.cover))).toList()),
             ),
     );
