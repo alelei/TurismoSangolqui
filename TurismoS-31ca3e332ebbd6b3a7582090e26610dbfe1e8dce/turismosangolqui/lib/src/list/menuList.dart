@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/models/MenuPri_models.dart';
-import 'package:turismosangolqui/src/pages/main_site.dart';
-import 'package:turismosangolqui/src/services/patient_service.dart';
+import 'package:turismosangolqui/src/services/menuPri_service.dart';
+import 'package:turismosangolqui/src/widgets/cards/atractiveListCard.dart';
 
 class menusList extends StatefulWidget {
   const menusList({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _MenuListState extends State<menusList> {
             child: GestureDetector( //tocar
              onTap: (){
                
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> mainSite(),
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Atractive_List(),
         ));
              },
           child: Column(

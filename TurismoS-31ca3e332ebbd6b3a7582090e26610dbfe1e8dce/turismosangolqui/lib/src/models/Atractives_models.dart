@@ -5,7 +5,7 @@ String atractivesToJson(Atractive data) => json.encode(data.toJson());
 
 class Atractive {
   Atractive({
-    required this.id,
+    
     required this.name,
     required this.description,
     required this.horario,
@@ -13,7 +13,7 @@ class Atractive {
     
   });
 
-  String id;
+
   String name;
   String description;
   String horario;
@@ -21,7 +21,7 @@ class Atractive {
   
 
   factory Atractive.fromJson(Map<String, dynamic> json) => Atractive(
-        id: json["id"],
+       
         name: json["name"],
         description: json["description"],
         horario: json["horario"],
@@ -29,7 +29,7 @@ class Atractive {
       );
 
   Map<String, dynamic> toJson() => {
-        "id":id,
+        
         "name": name,
         "description": description,
         "horario": horario,
