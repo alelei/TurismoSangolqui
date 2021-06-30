@@ -33,26 +33,30 @@ class _MenuListState extends State<menusList> {
             child: Center(child: Text('Descargando Items')),
           )
         : Container(
-            child: GestureDetector(
-            //tocar
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Expanded(
-                        child: SingleChildScrollView(child: Atractive_List())),
-                  ));
-            },
-
-            child: Column(
-                // mainAxisAlignment : MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: _MenusPri.map((e) => ListTile(
-                    title: Text(e.name,
-                        style: Theme.of(context).textTheme.headline3),
-                    leading: Image.network((e.photo ?? ""),
-                        width: 200, height: 200, fit: BoxFit.cover))).toList()),
-          ));
+            height: 400,
+            width: 1200,
+            child: Card(
+              child: Image.asset(
+                'images/Atractivos.jpg',
+                fit: BoxFit.cover,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 5,
+              margin: EdgeInsets.all(10),
+              
+            )
+            ,
+            // child: Column(
+            //     // mainAxisAlignment : MainAxisAlignment.center,
+            //     // crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: _MenusPri.map((e) => ListTile(
+            //         title: Text(e.name,
+            //             style: Theme.of(context).textTheme.headline3),
+            //         leading: Image.asset((e.photo ?? "error"),
+            //             width: 200, height: 200, fit: BoxFit.cover))).toList()),
+          );
   }
 
   _loadMenusPri() {

@@ -1,23 +1,23 @@
 [
     {
         "name" : "Atractivos Turísticos Sangolquí",
-        "photo" :  "https://pbs.twimg.com/media/ELs7-_GWwAEfxzi.jpg" 
+        "photo" :  "/images/Atractivos.jpg" 
     },
     {
         "name" : "Lugares Turísticos",
-        "photo" :  "https://cdn.pixabay.com/photo/2020/03/07/21/36/cathedral-4910969_1280.jpg"
+        "photo" :  "/images/Lugares.jpg"
     },
     {
         "name" : "Entretenimiento",
-        "photo" :  "https://cdn.pixabay.com/photo/2018/10/06/21/09/hotel-3728754_1280.jpg"
+        "photo" :  "/images/Gastronomia.jpg"
     },
     {
         "name" : "Gastronomía",
-        "photo" : "https://cdn.pixabay.com/photo/2018/10/06/21/09/hotel-3728754_1280.jpg"
+        "photo" : "/images/Gastronomia.jpg"
     },
     {
         "name" : "Acerca_De",
-        "photo": "https://cdn.pixabay.com/photo/2016/10/12/19/50/matrix-1735640_1280.jpg"
+        "photo": "/images/Acerca.jpg"
     }
 ]
     
