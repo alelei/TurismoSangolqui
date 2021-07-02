@@ -16,4 +16,4 @@ List<ItemMenu> menuOptions = [
   
 ];
 
-List<Widget> contentWidget = [HomeWidget(), reservaWidgets()];
+List<Widget> contentWidget = [HomeWidget(), ReservaWidgets()];

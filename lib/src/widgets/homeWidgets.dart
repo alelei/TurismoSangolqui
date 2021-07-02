@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/list/menuItems.dart';
+import 'package:turismosangolqui/src/list/menuList.dart';
 
 class HomeWidget extends StatefulWidget {
   HomeWidget({Key? key}) : super(key: key);
@@ -19,10 +20,9 @@ class _HomeWidgetState extends State<HomeWidget> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("BIenvenidos",
-              style: Theme.of(context).textTheme.bodyText1), //Etilos
+          Text("", style: Theme.of(context).textTheme.bodyText1), //Etilos
           Text("", style: Theme.of(context).textTheme.bodyText1),
-          Expanded(child: SingleChildScrollView(child: MenuItems()))
+          Expanded(child: SingleChildScrollView(child: MenusList()))
         ],
       ),
     );

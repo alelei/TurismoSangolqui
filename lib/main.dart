@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SANGOLQUI TURISMO',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.green,
       ),
       home: MainPage(titulo: 'SANGOLQUI TURISMO'),
     );

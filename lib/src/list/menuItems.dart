@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 
 class MenuItems extends StatelessWidget {
-  const MenuItems({Key? key}) : super(key: key);
-
+  final images = [
+    {'image': 'images/Atractivos.jpg', 'title': 'image 1'},
+    {'image': 'images/Acerca.jpg', 'title': 'image 2'},
+    {'image': 'images/Lugares.jpg', 'title': 'image 3'}
+  ];
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          height: 250,
-          child: Card(
-              child: Image.asset(
-              'images/Atractivos.jpg',
-              fit: BoxFit.cover,
+    return Container(
+      child: Row(
+        children: [
+          ListView.builder(
+            itemCount: images.length,
+            itemBuilder: (_, i) => Row(
+              children: [
+                Image.asset(
+                  images[i]['image'] ?? '',
+                  width: 200,
+                ),
+                Text(images[i]['title'] ?? '')
+              ],
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            elevation: 5,
-            margin: EdgeInsets.all(10),
-          )),
+          ),
+        ],
+      ),
     );
   }
 }
+// final images = [
+//     {'image': 'images/Atractivos.jpg', 'title': 'image 1'},
+//     {'image': 'images/Acerca.jpg', 'title': 'image 2'},
+//     {'image': 'images/Lugares.jpg', 'title': 'image 3'}
+//   ];
