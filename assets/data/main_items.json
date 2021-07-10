@@ -2,7 +2,7 @@
     {
         "name" : "Atractivos Turísticos Sangolquí",
         "photo" : "/images/Atractivos.jpg" ,
-        "method" : "AtractivosList"
+        "method" : "AtractiveList()"
     },
     {
         "name" : "Lugares Turísticos",

@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
             : menuOptions[_selectedIndex].label),
       ),
       body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 14.0),
+          margin: EdgeInsets.symmetric(horizontal: 0.0),
           child: contentWidget[_selectedIndex]),
       floatingActionButton: _selectedIndex == 1
           ? FloatingActionButton(

@@ -5,14 +5,14 @@ String menuPriToJson(MenuPri data) => json.encode(data.toJson());
 
 class MenuPri {
   MenuPri({
-    required this.name,
+   this.name,
     this.photo,
-    required this.method
+    this.method
   });
 
-  String name;
+  String? name;
   String? photo;
-  String method;
+  String? method;
 
   factory MenuPri.fromJson(Map<String, dynamic> json) => MenuPri(
         name: json["name"],

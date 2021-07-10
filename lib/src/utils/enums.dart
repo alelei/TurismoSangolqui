@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:turismosangolqui/src/widgets/content/AtractiveWidget.dart';
 import 'package:turismosangolqui/src/widgets/homeWidgets.dart';
 import 'package:turismosangolqui/src/widgets/reservaWidgets.dart';
-
 
 class ItemMenu {
   String label;
@@ -13,7 +13,6 @@ class ItemMenu {
 List<ItemMenu> menuOptions = [
   ItemMenu(Icons.home, "Inicio"),
   ItemMenu.create(Icons.people, "Reservas"),
-  
 ];
 
-List<Widget> contentWidget = [HomeWidget(), ReservaWidgets()];
+List<Widget> contentWidget = [HomeWidget(), AtractivesWidget()];
