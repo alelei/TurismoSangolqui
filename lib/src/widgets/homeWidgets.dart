@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/list/AtractiveList.dart';
 import 'package:turismosangolqui/src/list/Items_Menu.dart';
-import 'package:turismosangolqui/src/list/atractiveListCard.dart';
-import 'package:turismosangolqui/src/widgets/content/AtractiveWidget.dart';
+import 'package:turismosangolqui/src/list/PlacesList.dart';
 
 class HomeWidget extends StatefulWidget {
   HomeWidget({Key? key}) : super(key: key);
@@ -20,45 +19,32 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Column(
         children: [
           ItemsMenu(
-            title: Text("Atractivos"),
-            image: Image.asset("images/Atractivos.jpg",
-                height: 175,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth),
+            title: ("Atractivos".toUpperCase()),
+            image: ("images/Atractivos.jpg"),
             method: AtractiveList(
               name: Text('Átractivos Turísticos'),
             ),
           ),
           ItemsMenu(
-            title: Text("Lugares"),
-            image: Image.asset("images/Lugares.jpg",
-                height: 175,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth),
+            title: ("Lugares".toUpperCase()),
+            image: ("images/Lugares.jpg"),
+            method: PlacesList(
+              name: Text('Lugares'),
+            ),
+          ),
+          ItemsMenu(
+            title: ("Entretenimiento".toUpperCase()),
+            image: ("images/Entretenimiento.jpg"),
             method: Text('Atractivos()'),
           ),
           ItemsMenu(
-            title: Text("Entretenimiento"),
-            image: Image.asset("images/Entretenimiento.jpg",
-                height: 175,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth),
+            title: ("Gastronomia".toUpperCase()),
+            image: ("images/Gastronomia.jpg"),
             method: Text('Atractivos()'),
           ),
           ItemsMenu(
-            title: Text("Gastronomia"),
-            image: Image.asset("images/Gastronomia.jpg",
-                height: 175,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth),
-            method: Text('Atractivos()'),
-          ),
-          ItemsMenu(
-            title: Text("Acerca_de"),
-            image: Image.asset("images/Atractivos.jpg",
-                height: 175,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth),
+            title: ("Acerca_de".toUpperCase()),
+            image: ("images/Acerca.jpg"),
             method: Text('Atractivos()'),
           ),
         ],

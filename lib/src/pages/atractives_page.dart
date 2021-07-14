@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:turismosangolqui/src/models/Atractives_models.dart';
+import 'package:turismosangolqui/src/models/Atractive_models.dart';
 import 'package:turismosangolqui/src/widgets/content/Atractives_details_widget.dart';
 
 class AtractivePage extends StatefulWidget {
@@ -26,27 +26,37 @@ class _AtractivePageState extends State<AtractivePage> {
   _appBar() {
     return SliverAppBar(
         title: Text(
-          widget.atractive.name,
-          style: Theme.of(context).textTheme.caption,
+          'Atras',
+          style: Theme.of(context).textTheme.subtitle2,
         ),
-        backgroundColor: Theme.of(context).secondaryHeaderColor,
+        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
         pinned: true,
         expandedHeight: 250.0,
         flexibleSpace: FlexibleSpaceBar(
             background: Container(
           child: Column(children: [
             Container(
-                padding: EdgeInsets.symmetric(vertical: 42),
-                height: 170.0,
+                padding: EdgeInsets.only(top: 42),
+                height: 200,
                 child: widget.atractive.photo == null
                     ? Image.asset("images/user.png")
-                    : FadeInImage(
-                        placeholder: AssetImage('images/user.png'),
-                        image:
-                            NetworkImage(widget.atractive.photo.toString()))),
-            Text(widget.atractive.name,
-                style: Theme.of(context).textTheme.headline4),
-            Text(widget.atractive.description)
+                    : Container(
+                        height: 200,
+                        width: 250,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadiusDirectional.circular(30),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    widget.atractive.photo.toString()),
+                                fit: BoxFit.fitWidth)),
+                      )),
+            ListTile(
+              title: Text(
+                widget.atractive.name,
+                style: Theme.of(context).textTheme.headline6,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ]),
         )));
   }

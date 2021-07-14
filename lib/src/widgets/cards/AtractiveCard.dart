@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:turismosangolqui/src/models/Atractives_models.dart';
+import 'package:turismosangolqui/src/models/Atractive_models.dart';
 import 'package:turismosangolqui/src/pages/atractives_page.dart';
 
 class AtractiveCard extends StatelessWidget {
@@ -11,6 +11,7 @@ class AtractiveCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
+        margin: EdgeInsets.all(2),
         height: 180,
         child: SizedBox(
           child: ListTile(
@@ -23,33 +24,42 @@ class AtractiveCard extends StatelessWidget {
                   ));
             },
             title: Text(currentAtractive.name,
-                style: Theme.of(context).textTheme.headline5),
+                style: Theme.of(context).textTheme.headline6),
             subtitle: Row(children: [
               Expanded(
                 child: Column(children: [
                   ListTile(
-                    leading: Icon(Icons.emoji_objects_outlined),
                     title: Text('Horario:'),
-                    subtitle: Text(currentAtractive.horario),
+                    subtitle: Text(
+                      currentAtractive.horario,
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ),
+                    leading: Icon(
+                      Icons.mms_rounded,
+                      color: Theme.of(context).accentColor,
+                    ),
                   ),
                 ]),
               ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Card(
-                      child: currentAtractive.photo == null
-                          ? Image.asset("images/user.png")
-                          : Image.network(
-                              currentAtractive.photo.toString(),
-                              fit: BoxFit.fill,
-                              height: 130,
-                              width: 200,
-                            ),
-                    ),
-                  ],
-                ),
-              )
+              Column(
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(top: 20),
+                      height: 120,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                currentAtractive.photo.toString(),
+                              ),
+                              fit: BoxFit.fitWidth))),
+                ],
+              ),
             ]),
           ),
         ),

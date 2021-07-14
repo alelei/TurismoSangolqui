@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:turismosangolqui/src/models/Atractives_models.dart';
+import 'package:turismosangolqui/src/models/Atractive_models.dart';
 
 class AtractiveDetailsWidget extends StatefulWidget {
   const AtractiveDetailsWidget({Key? key, required this.atractive})
@@ -35,7 +35,8 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TabBar(
-        labelColor: Theme.of(context).secondaryHeaderColor,
+        labelColor: Theme.of(context).accentColor,
+        indicatorColor: Theme.of(context).primaryColor,
         controller: _tabController,
         tabs: myTabs,
       ),
@@ -47,8 +48,15 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
   }
 
   _detail() {
-    return Column(
-      children: [],
+    return Card(
+      margin: EdgeInsets.all(4),
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Text(
+          widget.atractive.description,
+          textAlign: TextAlign.justify,
+        ),
+      ),
     );
   }
 

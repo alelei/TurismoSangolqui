@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:turismosangolqui/src/models/Atractives_models.dart';
+import 'package:turismosangolqui/src/models/Atractive_models.dart';
 
 
 class AtractiveService {

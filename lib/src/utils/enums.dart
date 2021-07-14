@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/widgets/content/AtractiveWidget.dart';
 import 'package:turismosangolqui/src/widgets/homeWidgets.dart';
-import 'package:turismosangolqui/src/widgets/reservaWidgets.dart';
 
 class ItemMenu {
   String label;
