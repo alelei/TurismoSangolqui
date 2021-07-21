@@ -1,31 +1,31 @@
 [
     {
         "name" : "Atractivos Turísticos Sangolquí",
-        "photo" : "/images/Atractivos.jpg" ,
+        "photo" : "assets/images/Atractivos.jpg" ,
         "horario": "Abierto",
         "description" : "AtractiveList()"
     },
     {
         "name" : "Lugares Turísticos",
-        "photo" :  "/images/Lugares.jpg",
+        "photo" :  "assets/images/Lugares.jpg",
         "horario": "Abierto",
         "description" : "LugaresList"
     },
     {
         "name" : "Entretenimiento",
-        "photo" :  "/images/Entretenimiento.jpg",
+        "photo" :  "assets/images/Entretenimiento.jpg",
         "horario": "Abierto",
         "description" : "EntretenimientoList"
     },
     {
         "name" : "Gastronomía",
-        "photo" : "/images/Gastronomia.jpg",
+        "photo" : "assets/images/Gastronomia.jpg",
         "horario": "Abierto",
         "description" : "GastronomíaList"
     },
     {
         "name" : "Acerca_De",
-        "photo": "/images/Acerca.jpg",
+        "photo": "assets/images/Acerca.jpg",
         "horario": "Abierto",
         "description" : "_"
     }

@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SANGOLQUI TURISMO',
+      title: 'SANGOLQUÍTURISMO',
       theme: ThemeData(primaryColor: Colors.lime, accentColor: Colors.green),
-      home: MainPage(titulo: 'SANGOLQUI TURISMO'),
+      home: MainPage(titulo: 'SANGOLQUÍ TURISMO'),
     );
   }
 }

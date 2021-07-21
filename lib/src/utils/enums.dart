@@ -10,7 +10,7 @@ class ItemMenu {
 }
 
 List<ItemMenu> menuOptions = [
-  ItemMenu(Icons.home, "Inicio"),
+  ItemMenu(Icons.home , "Inicio"),
   ItemMenu.create(Icons.people, "Reservas"),
 ];
 

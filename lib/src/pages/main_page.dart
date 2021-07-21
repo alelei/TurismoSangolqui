@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key, required this.titulo}) : super(key: key);
   final String titulo;
@@ -24,9 +23,12 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(_selectedIndex == 0
-            ? widget.titulo
-            : menuOptions[_selectedIndex].label),
+        title: Text(
+          _selectedIndex == 0
+              ? widget.titulo
+              : menuOptions[_selectedIndex].label,
+          style: TextStyle(color: Theme.of(context).cardColor),
+        ),
       ),
       body: Container(
           margin: EdgeInsets.symmetric(horizontal: 0.0),

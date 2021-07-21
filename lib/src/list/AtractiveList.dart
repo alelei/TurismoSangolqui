@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/models/Atractive_models.dart';
 import 'package:turismosangolqui/src/services/atractives_service.dart';
+import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 import 'package:turismosangolqui/src/widgets/cards/AtractiveCard.dart';
 
 class AtractiveList extends StatefulWidget {
@@ -30,12 +31,25 @@ class _AtractiveListState extends State<AtractiveList> {
     return Column(
       children: [
         AppBar(title: widget.name),
-        Card(
+        Container(
+            color: Theme.of(context).cardColor,
             child: _atractive.length == 0
-                ? Center(
-                    child: Container(
-                      child: Center(child: Text('Descargando Items')),
-                    ),
+                ? Column(
+                    children: [
+                      Center(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height,
+                          color: Theme.of(context).cardColor,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Standard.getBoard(context,
+                                  'Descargando Atractivos', (Icons.download))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   )
                 : Container(
                     child: Column(

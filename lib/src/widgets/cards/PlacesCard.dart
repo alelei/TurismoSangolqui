@@ -36,7 +36,7 @@ class PlaceCard extends StatelessWidget {
                   children: [
                     Card(
                       child: currentPlace.photo == null
-                          ? Image.asset("images/user.png")
+                          ? Image.asset("assets/images/user.png")
                           : Image.asset(
                               currentPlace.photo.toString(),
                               fit: BoxFit.fill,

@@ -20,31 +20,31 @@ class _HomeWidgetState extends State<HomeWidget> {
         children: [
           ItemsMenu(
             title: ("Atractivos".toUpperCase()),
-            image: ("images/Atractivos.jpg"),
+            image: ("assets/images/Atractivos.jpg"),
             method: AtractiveList(
               name: Text('Átractivos Turísticos'),
             ),
           ),
           ItemsMenu(
             title: ("Lugares".toUpperCase()),
-            image: ("images/Lugares.jpg"),
+            image: ("assets/images/Lugares.jpg"),
             method: PlacesList(
               name: Text('Lugares'),
             ),
           ),
           ItemsMenu(
             title: ("Entretenimiento".toUpperCase()),
-            image: ("images/Entretenimiento.jpg"),
+            image: ("assets/images/Entretenimiento.jpg"),
             method: Text('Atractivos()'),
           ),
           ItemsMenu(
             title: ("Gastronomia".toUpperCase()),
-            image: ("images/Gastronomia.jpg"),
+            image: ("assets/images/Gastronomia.jpg"),
             method: Text('Atractivos()'),
           ),
           ItemsMenu(
             title: ("Acerca_de".toUpperCase()),
-            image: ("images/Acerca.jpg"),
+            image: ("assets/images/Acerca.jpg"),
             method: Text('Atractivos()'),
           ),
         ],
