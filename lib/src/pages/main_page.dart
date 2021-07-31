@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';
+import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key, required this.titulo}) : super(key: key);
@@ -23,11 +25,11 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: Standard.titleToForm(context,
           _selectedIndex == 0
               ? widget.titulo
               : menuOptions[_selectedIndex].label,
-          style: TextStyle(color: Theme.of(context).cardColor),
+         TextAlign.center,
         ),
       ),
       body: Container(
@@ -35,7 +37,13 @@ class _MainPageState extends State<MainPage> {
           child: contentWidget[_selectedIndex]),
       floatingActionButton: _selectedIndex == 1
           ? FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Text('')),
+                    );
+              },
               child: const Icon(Icons.add),
             )
           : null,

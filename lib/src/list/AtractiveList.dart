@@ -5,8 +5,8 @@ import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 import 'package:turismosangolqui/src/widgets/cards/AtractiveCard.dart';
 
 class AtractiveList extends StatefulWidget {
-  const AtractiveList({Key? key, required this.name}) : super(key: key);
-  final Widget name;
+  const AtractiveList({Key? key, required}) : super(key: key);
+
   @override
   _AtractiveListState createState() => _AtractiveListState();
 }
@@ -28,38 +28,33 @@ class _AtractiveListState extends State<AtractiveList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppBar(title: widget.name),
-        Container(
-            color: Theme.of(context).cardColor,
-            child: _atractive.length == 0
-                ? Column(
-                    children: [
-                      Center(
-                        child: Container(
-                          height: MediaQuery.of(context).size.height,
-                          color: Theme.of(context).cardColor,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Standard.getBoard(context,
-                                  'Descargando Atractivos', (Icons.download))
-                            ],
-                          ),
-                        ),
+    return Container(
+        color: Theme.of(context).cardColor,
+        child: _atractive.length == 0
+            ? Column(
+                children: [
+                  Center(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      color: Theme.of(context).cardColor,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Standard.getBoard(context, 'Descargando Atractivos',
+                              (Icons.download))
+                        ],
                       ),
-                    ],
-                  )
-                : Container(
-                    child: Column(
-                        // mainAxisAlignment : MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        children: _atractive
-                            .map((e) => AtractiveCard(currentAtractive: e))
-                            .toList())))
-      ],
-    );
+                    ),
+                  ),
+                ],
+              )
+            : Container(
+                child: Column(
+                    // mainAxisAlignment : MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: _atractive
+                        .map((e) => AtractiveCard(currentAtractive: e))
+                        .toList())));
   }
 
   _loadAtractive() {

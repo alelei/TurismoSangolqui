@@ -27,7 +27,7 @@ class Standard {
           width: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: ExactAssetImage("assets/images/background.png"),
+                  image: ExactAssetImage("assets/images/back.jfif"),
                   repeat: ImageRepeat.repeat),
               gradient: LinearGradient(colors: [
                 Theme.of(context).primaryColor,
@@ -52,10 +52,14 @@ class Standard {
       BuildContext context, String title, TextAlign position) {
     Color _color = Theme.of(context).cardColor;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 14.0),
-      child: Text(title,
-          style: Theme.of(context).textTheme.headline6!.apply(color: _color),
-          textAlign: position),
+      margin: EdgeInsets.symmetric(vertical: 0.0),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.headline6!.apply(
+              color: _color,
+            ),
+        textAlign: position,
+      ),
     );
   }
 
@@ -108,6 +112,7 @@ class Standard {
     );
   }
 
+  // ignore: non_constant_identifier_names
   static String GetTerapyState(int state) {
     switch (state) {
       case 1:
@@ -120,9 +125,9 @@ class Standard {
   }
 
   static Widget getInfoLine(
-      BuildContext context, String title, String subtitle, IconData icon) {
+      BuildContext context, String title, String subtitle) {
     return ListTile(
-      leading: Icon(icon),
+      
       title: Text(title, style: Theme.of(context).textTheme.bodyText2),
       subtitle: Text(subtitle, style: Theme.of(context).textTheme.headline6),
     );

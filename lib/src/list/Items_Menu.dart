@@ -25,9 +25,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      SingleChildScrollView(child: widget.method)),
+              MaterialPageRoute(builder: (context) => widget.method),
             );
           },
           child: Container(

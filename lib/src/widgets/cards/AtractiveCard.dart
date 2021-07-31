@@ -19,12 +19,13 @@ class AtractiveCard extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        AtractivePage(atractive: currentAtractive),
+                    builder: (context) => AtractivePage(
+                      atractive: currentAtractive,
+                    ),
                   ));
             },
             title: Text(currentAtractive.name,
-                style: Theme.of(context).textTheme.headline6),
+                style: Theme.of(context).textTheme.headline5),
             subtitle: Row(children: [
               Expanded(
                 child: Column(children: [
@@ -37,7 +38,7 @@ class AtractiveCard extends StatelessWidget {
                     leading: Icon(
                       Icons.mms_rounded,
                       color: Theme.of(context).accentColor,
-                    ),
+                    ), 
                   ),
                 ]),
               ),
@@ -45,7 +46,7 @@ class AtractiveCard extends StatelessWidget {
                 children: [
                   Container(
                       margin: EdgeInsets.only(top: 20),
-                      height: 120,
+                      height: 130,
                       width: 150,
                       decoration: BoxDecoration(
                           border: Border.all(

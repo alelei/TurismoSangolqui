@@ -7,21 +7,21 @@ class Place {
   Place({
     this.name,
     this.photo,
-    this.method,
+    this.description,
     this.horario,
   });
 
   String? name;
   String? photo;
-  String? method;
+  String? description;
   String? horario;
   factory Place.fromJson(Map<String, dynamic> json) => Place(
         name: json["name"],
         photo: json["photo"],
-        method: json["method"],
+        description: json["method"],
         horario: json['horario'],
       );
 
   Map<String, dynamic> toJson() =>
-      {"name": name, "photo": photo, "method": method, "horario": horario};
+      {"name": name, "photo": photo, "method": description, "horario": horario};
 }
