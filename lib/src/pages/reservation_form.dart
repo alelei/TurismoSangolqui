@@ -11,6 +11,7 @@ import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 DateTime selectedDate = DateTime.now();
 
 class ReservationForm extends StatefulWidget {
+   final formKey = GlobalKey<FormState>();
   ReservationForm({Key? key, required this.reservation}) : super(key: key);
   final Reservation reservation;
 
@@ -375,9 +376,13 @@ class _ReservationFormState extends State<ReservationForm> {
   _sendForm() async {
     //Vincula el valor de las controles del formulario a los atributos del modelo
     formKey.currentState!.save();
-
+    if (_imageSelected) {
+      _reservation.photo = await _serviceReservation.uploadImage(_image);
+    }
+    
     //Llamamos al servicio para guardar el reporte
     _serviceReservation.sendReservationUser(_reservation).then((value) {
+      formKey.currentState!.reset();
       Navigator.pop(context);
     });
   }

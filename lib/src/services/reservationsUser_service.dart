@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
+
 import 'package:turismosangolqui/src/models/ReservationUser_models.dart';
+import 'package:cloudinary_public/cloudinary_public.dart';
 
 class ReservationUserService {
   ReservationUserService();
@@ -40,6 +43,23 @@ class ReservationUserService {
     } on Exception catch (e) {
       print("Exception $e");
       return null;
+    }
+  }
+
+  Future<String> uploadImage(File image) async {
+    final cloudinary =
+        CloudinaryPublic('espelsoftware', 'plr27ulz', cache: false);
+    try {
+      CloudinaryResponse response = await cloudinary.uploadFile(
+        CloudinaryFile.fromFile(image.path,
+            resourceType: CloudinaryResourceType.Image),
+      );
+
+      return response.secureUrl;
+    } on CloudinaryException catch (e) {
+      print(e.message);
+      print(e.request);
+      return "";
     }
   }
 }
