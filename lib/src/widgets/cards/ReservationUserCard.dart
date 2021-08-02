@@ -12,7 +12,7 @@ class ReservationUserCard extends StatelessWidget {
       child: Card(
         child: Container(
           margin: EdgeInsets.all(2),
-          height: 580,
+          height: 600,
           child: SizedBox(
             child: ListTile(
               title: Text(currentReservationUser.name,
@@ -29,7 +29,7 @@ class ReservationUserCard extends StatelessWidget {
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.power_input,
                           color: Theme.of(context).accentColor,
                         ),
                       ),
@@ -42,7 +42,7 @@ class ReservationUserCard extends StatelessWidget {
                           style:
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
-                        leading: Icon(Icons.calendar_today),
+                        leading: Icon(Icons.date_range_rounded),
                       ),
                       ListTile(
                         title: Text('Fecha Salida:'),
@@ -53,7 +53,7 @@ class ReservationUserCard extends StatelessWidget {
                           style:
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
-                        leading: Icon(Icons.calendar_today_rounded),
+                        leading: Icon(Icons.date_range_rounded),
                       ),
                       ListTile(
                         title: Text('Número de Ninos:'),
@@ -63,7 +63,7 @@ class ReservationUserCard extends StatelessWidget {
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.person,
                           color: Theme.of(context).accentColor,
                         ),
                       ),
@@ -75,19 +75,19 @@ class ReservationUserCard extends StatelessWidget {
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.person,
                           color: Theme.of(context).accentColor,
                         ),
                       ),
                       ListTile(
-                        title: Text('Price:'),
+                        title: Text('Precio:'),
                         subtitle: Text(
                           currentReservationUser.price,
                           style:
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.money_sharp,
                           color: Theme.of(context).accentColor,
                         ),
                       ),
@@ -99,7 +99,7 @@ class ReservationUserCard extends StatelessWidget {
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.cloud_done,
                           color: Theme.of(context).accentColor,
                         ),
                       ),
@@ -111,7 +111,7 @@ class ReservationUserCard extends StatelessWidget {
                               TextStyle(color: Theme.of(context).primaryColor),
                         ),
                         leading: Icon(
-                          Icons.mms_rounded,
+                          Icons.description,
                           color: Theme.of(context).accentColor,
                         ),
                       )
@@ -122,8 +122,8 @@ class ReservationUserCard extends StatelessWidget {
                   children: [
                     Container(
                         margin: EdgeInsets.only(top: 20),
-                        height: 120,
-                        width: 150,
+                        height: 150,
+                        width: 200,
                         decoration: BoxDecoration(
                             border: Border.all(
                               color: Theme.of(context).primaryColor,

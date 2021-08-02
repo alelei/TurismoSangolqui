@@ -36,7 +36,7 @@ class AtractiveCard extends StatelessWidget {
                       style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                     leading: Icon(
-                      Icons.mms_rounded,
+                      Icons.date_range,
                       color: Theme.of(context).accentColor,
                     ), 
                   ),
@@ -45,9 +45,9 @@ class AtractiveCard extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: 0),
                       height: 130,
-                      width: 150,
+                      width: 200,
                       decoration: BoxDecoration(
                           border: Border.all(
                             color: Theme.of(context).primaryColor,

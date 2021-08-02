@@ -30,7 +30,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
           },
           child: Container(
             margin: EdgeInsets.all(2),
-            height: 180,
+            height: 228,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),
@@ -58,7 +58,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
                   title: Text(
                     widget.title,
                     style: TextStyle(
-                        letterSpacing: 2,
+                        letterSpacing: 6,
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold),
                   ),

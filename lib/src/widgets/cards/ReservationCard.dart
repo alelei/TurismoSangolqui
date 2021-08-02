@@ -13,7 +13,7 @@ class ReservationCard extends StatelessWidget {
     return Card(
       child: Container(
         margin: EdgeInsets.all(2),
-        height: 220,
+        height: 230,
         child: SizedBox(
           child: ListTile(
             onTap: () {
@@ -37,7 +37,7 @@ class ReservationCard extends StatelessWidget {
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
                       leading: Icon(
-                        Icons.mms_rounded,
+                        Icons.description_sharp
                       ),
                     ),
                     ListTile(
@@ -47,7 +47,7 @@ class ReservationCard extends StatelessWidget {
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
                       leading: Icon(
-                        Icons.time_to_leave,
+                        Icons.date_range_rounded
                       ),
                     ),
                     ListTile(
@@ -57,7 +57,7 @@ class ReservationCard extends StatelessWidget {
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
                       leading: Icon(
-                        Icons.mms_rounded,
+                        Icons.money_sharp,
                         color: Theme.of(context).accentColor,
                       ),
                     )
@@ -68,8 +68,8 @@ class ReservationCard extends StatelessWidget {
                 children: [
                   Container(
                       margin: EdgeInsets.only(top: 20),
-                      height: 120,
-                      width: 150,
+                      height: 150,
+                      width: 200,
                       decoration: BoxDecoration(
                           border: Border.all(
                             color: Theme.of(context).primaryColor,
