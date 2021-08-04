@@ -11,9 +11,6 @@ class ReservationUserWidget extends StatefulWidget {
 class _ReservationUserWidgetState extends State<ReservationUserWidget> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: ReservationUserList(
-      name: 'Lista de Reservas',
-    ));
+    return SingleChildScrollView(child: ReservationUserList());
   }
 }

@@ -11,7 +11,7 @@ import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 DateTime selectedDate = DateTime.now();
 
 class ReservationForm extends StatefulWidget {
-   final formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   ReservationForm({Key? key, required this.reservation}) : super(key: key);
   final Reservation reservation;
 
@@ -30,7 +30,7 @@ class _ReservationFormState extends State<ReservationForm> {
   //Un objeto del modelo a enviar
   late ReservationUser _reservation;
   late File _image;
-  late double _a = 0;
+
   bool _onSaving = false;
   bool _imageSelected = false;
   final _picker = ImagePicker();
@@ -42,11 +42,11 @@ class _ReservationFormState extends State<ReservationForm> {
       "",
       "",
       "",
-      "Uno",
-      "Uno",
+      "0",
+      "1",
       DateTime.now(),
       DateTime.now(),
-      '',
+      '0',
       "",
       "",
     );
@@ -103,8 +103,8 @@ class _ReservationFormState extends State<ReservationForm> {
                                 ),
                               ],
                             ),
-                            Standard.titleToForm(context, "Registro de Reserva",
-                                TextAlign.center),
+                            Standard.titleToForm(context,
+                                "Registre aqui su pago", TextAlign.center),
                             _form()
                           ],
                         ),
@@ -141,6 +141,7 @@ class _ReservationFormState extends State<ReservationForm> {
                 _inputFechaentrada(),
                 _inputFechaSalida(),
                 _inputDays(),
+                _inputPrecio(),
                 _buttons(),
               ],
             ),
@@ -155,12 +156,10 @@ class _ReservationFormState extends State<ReservationForm> {
         onSaved: (value) {
           _reservation.name = widget.reservation.name;
           _reservation.photo = widget.reservation.photo;
-          _reservation.pago = widget.reservation.photo;
-          _reservation.price = widget.reservation.price;
 
-          _reservation.description = 'Allex';
+          _reservation.description = widget.reservation.name;
         },
-        textAlign: TextAlign.start,
+        textAlign: TextAlign.center,
         validator: (value) {
           if (value!.length < 3) {
             return "Debe ingresar un nombre con al menos 3 caracteres";
@@ -173,10 +172,32 @@ class _ReservationFormState extends State<ReservationForm> {
   }
 
   _inputDays() {
-    return Text(
-      FormatTime.getAge(_reservation.fecha_ingreso, _reservation.fecha_Salida) +
-          ' '
-              'dias',
+    return ListTile(
+      title: Text('Dias a Hospedarse'),
+      subtitle: Text(
+        _reservation.days.toString() +
+            ' '
+                'dias',
+        style: Theme.of(context).textTheme.headline5,
+        textAlign: TextAlign.start,
+      ),
+    );
+  }
+
+  _inputPrecio() {
+    _reservation.price = ((int.parse(widget.reservation.price) *
+                    int.parse(_reservation.number_adults) +
+                int.parse(widget.reservation.price) *
+                    int.parse(_reservation.number_childrens) /
+                    2) *
+            int.parse(_reservation.days!))
+        .toString();
+    return ListTile(
+      title: Text('Precio a pagar'),
+      subtitle: Text(
+        _reservation.price + ' ' + 'dólares',
+        style: Theme.of(context).textTheme.headline5,
+      ),
     );
   }
 
@@ -201,7 +222,7 @@ class _ReservationFormState extends State<ReservationForm> {
               _reservation.number_childrens = newValue5!;
             });
           },
-          items: <String>['Uno', 'Dos', 'Tres', 'Cuatro']
+          items: <String>['0', '1', '2', '3', '4']
               .map<DropdownMenuItem<String>>((String? value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -227,14 +248,14 @@ class _ReservationFormState extends State<ReservationForm> {
           style: const TextStyle(color: Colors.deepPurple),
           underline: Container(
             height: 2,
-            color: Colors.deepPurpleAccent,
+            color: Theme.of(context).accentColor,
           ),
           onChanged: (String? newValue2) {
             setState(() {
               _reservation.number_adults = newValue2!;
             });
           },
-          items: <String>["Uno", "2"]
+          items: <String>["1", "2", "3"]
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -265,6 +286,7 @@ class _ReservationFormState extends State<ReservationForm> {
                       fontWeight: FontWeight.bold),
                 ),
                 Center(
+                  // ignore: deprecated_member_use
                   child: RaisedButton(
                     onPressed: () => _selectDate(context), // Refer step 3
                     child: Text(
@@ -300,6 +322,7 @@ class _ReservationFormState extends State<ReservationForm> {
                       fontWeight: FontWeight.bold),
                 ),
                 Center(
+                  // ignore: deprecated_member_use
                   child: RaisedButton(
                     onPressed: () => _selectDate2(context), // Refer step 3
                     child: Text(
@@ -377,14 +400,19 @@ class _ReservationFormState extends State<ReservationForm> {
     //Vincula el valor de las controles del formulario a los atributos del modelo
     formKey.currentState!.save();
     if (_imageSelected) {
-      _reservation.photo = await _serviceReservation.uploadImage(_image);
+      _reservation.pago = await _serviceReservation.uploadImage(_image);
     }
-    
+
     //Llamamos al servicio para guardar el reporte
-    _serviceReservation.sendReservationUser(_reservation).then((value) {
-      formKey.currentState!.reset();
-      Navigator.pop(context);
-    });
+    if (_reservation.pago == '') {
+      print('Suba su pago por favor.');
+      Text('Suba su pago');
+    } else {
+      _serviceReservation.sendReservationUser(_reservation).then((value) {
+        formKey.currentState!.reset();
+        Navigator.pop(context);
+      });
+    }
   }
 
   _showImage() {
@@ -417,6 +445,7 @@ class _ReservationFormState extends State<ReservationForm> {
   }
 
   Future _selectImage(ImageSource source) async {
+    // ignore: deprecated_member_use
     final pickedFile = await _picker.getImage(source: source);
     if (pickedFile != null) {
       _image = File(pickedFile.path);

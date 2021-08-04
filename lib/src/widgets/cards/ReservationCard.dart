@@ -13,7 +13,7 @@ class ReservationCard extends StatelessWidget {
     return Card(
       child: Container(
         margin: EdgeInsets.all(2),
-        height: 230,
+        height: 280,
         child: SizedBox(
           child: ListTile(
             onTap: () {
@@ -36,9 +36,7 @@ class ReservationCard extends StatelessWidget {
                         currentReservation.name,
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
-                      leading: Icon(
-                        Icons.description_sharp
-                      ),
+                      leading: Icon(Icons.description_sharp),
                     ),
                     ListTile(
                       title: Text('Horario:'),
@@ -46,9 +44,7 @@ class ReservationCard extends StatelessWidget {
                         currentReservation.horario,
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
-                      leading: Icon(
-                        Icons.date_range_rounded
-                      ),
+                      leading: Icon(Icons.date_range_rounded),
                     ),
                     ListTile(
                       title: Text('Precio:'),
@@ -69,7 +65,7 @@ class ReservationCard extends StatelessWidget {
                   Container(
                       margin: EdgeInsets.only(top: 20),
                       height: 150,
-                      width: 200,
+                      width: 150,
                       decoration: BoxDecoration(
                           border: Border.all(
                             color: Theme.of(context).primaryColor,

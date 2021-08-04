@@ -40,7 +40,7 @@ class _ReservationListState extends State<ReservationList> {
           children: [
             _reservation == []
                 ? Standard.getBoard(
-                    context, "No hay pacientes registrados", Icons.no_accounts)
+                    context, "No hay Reservas registrados", Icons.no_accounts)
                 : _reservation.length == 0
                     ? Standard.getBoard(
                         context, "Descargando Reservas", Icons.download)

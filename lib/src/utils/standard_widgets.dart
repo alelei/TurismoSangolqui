@@ -9,7 +9,7 @@ class Standard {
       height: 100.0,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
-          color: Theme.of(context).disabledColor.withAlpha(30)),
+          color: Theme.of(context).primaryColor.withAlpha(30)),
     );
 
     final circle_2 = Container(
@@ -17,7 +17,7 @@ class Standard {
       height: 100.0,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
-          color: Theme.of(context).backgroundColor.withAlpha(25)),
+          color: Theme.of(context).accentColor.withAlpha(25)),
     );
 
     return Stack(
@@ -66,7 +66,8 @@ class Standard {
   static ButtonStyle buttonStandardStyle(BuildContext context) {
     return ElevatedButton.styleFrom(
         elevation: 5.0,
-        shadowColor: Theme.of(context).dividerColor,
+        shadowColor: Theme.of(context).primaryColor,
+        primary: Theme.of(context).accentColor,
         shape: CircleBorder(),
         padding: EdgeInsets.all(20));
   }
@@ -127,7 +128,6 @@ class Standard {
   static Widget getInfoLine(
       BuildContext context, String title, String subtitle) {
     return ListTile(
-      
       title: Text(title, style: Theme.of(context).textTheme.bodyText2),
       subtitle: Text(subtitle, style: Theme.of(context).textTheme.headline6),
     );

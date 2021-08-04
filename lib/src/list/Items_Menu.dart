@@ -30,7 +30,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
           },
           child: Container(
             margin: EdgeInsets.all(2),
-            height: 228,
+            height: 190,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),

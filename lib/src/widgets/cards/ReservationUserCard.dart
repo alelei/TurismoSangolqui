@@ -12,15 +12,37 @@ class ReservationUserCard extends StatelessWidget {
       child: Card(
         child: Container(
           margin: EdgeInsets.all(2),
-          height: 600,
+          height: 800,
           child: SizedBox(
             child: ListTile(
               title: Text(currentReservationUser.name,
                   style: Theme.of(context).textTheme.headline6),
-              subtitle: Row(children: [
+              subtitle: Column(children: [
                 Expanded(
                   child: Column(
                     children: [
+                      Column(
+                        children: [
+                          ListTile(
+                            title: Text('Foto de Pago'),
+                          ),
+                          Container(
+                              margin: EdgeInsets.only(top: 20),
+                              height: 120,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Theme.of(context).primaryColor,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        currentReservationUser.pago.toString(),
+                                      ),
+                                      fit: BoxFit.fitWidth))),
+                        ],
+                      ),
                       ListTile(
                         title: Text('Atractivo:'),
                         subtitle: Text(
@@ -117,25 +139,6 @@ class ReservationUserCard extends StatelessWidget {
                       )
                     ],
                   ),
-                ),
-                Column(
-                  children: [
-                    Container(
-                        margin: EdgeInsets.only(top: 20),
-                        height: 150,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                  currentReservationUser.photo.toString(),
-                                ),
-                                fit: BoxFit.fitWidth))),
-                  ],
                 ),
               ]),
             ),

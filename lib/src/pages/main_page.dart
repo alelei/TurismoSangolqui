@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:turismosangolqui/src/list/ReservationList.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';
 import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 
@@ -25,11 +25,12 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Standard.titleToForm(context,
+        title: Standard.titleToForm(
+          context,
           _selectedIndex == 0
               ? widget.titulo
               : menuOptions[_selectedIndex].label,
-         TextAlign.center,
+          TextAlign.center,
         ),
       ),
       body: Container(
@@ -39,10 +40,12 @@ class _MainPageState extends State<MainPage> {
           ? FloatingActionButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Text('')),
-                    );
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ReservationList(
+                            name: 'Alex',
+                          )),
+                );
               },
               child: const Icon(Icons.add),
             )

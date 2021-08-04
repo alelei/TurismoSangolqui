@@ -5,8 +5,8 @@ import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 import 'package:turismosangolqui/src/widgets/cards/ReservationUserCard.dart';
 
 class ReservationUserList extends StatefulWidget {
-  const ReservationUserList({Key? key, required this.name}) : super(key: key);
-  final String name;
+  const ReservationUserList({Key? key}) : super(key: key);
+  
   @override
   _ReservationUserListState createState() => _ReservationUserListState();
 }
@@ -30,10 +30,9 @@ class _ReservationUserListState extends State<ReservationUserList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppBar(title: Text(widget.name.toString())),
         _reservation == []
             ? Standard.getBoard(
-                context, "No hay pacientes registrados", Icons.no_accounts)
+                context, "No hay reservas registradas", Icons.no_accounts)
             : _reservation.length == 0
                 ? Standard.getBoard(
                     context, "Descargando Reservas", Icons.download)
