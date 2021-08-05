@@ -24,9 +24,18 @@ class _FavoriteElementListState extends State<FavoriteElementList> {
             shrinkWrap: true,
             itemCount: fisioProvider.elements.length,
             itemBuilder: (_, index) => Card(
-                child: ListTile(
-                    leading: Icon(Icons.medical_services),
-                    title: Text(fisioProvider.elements[index].place_name),
-                    subtitle: Text(fisioProvider.elements[index].coment))));
+                child: Column(
+                  children: [
+                    ListTile(
+                        leading: Icon(Icons.medical_services),
+                        title: Text(fisioProvider.elements[index].place_name),
+                        subtitle: Text(fisioProvider.elements[index].coment)),
+                   ListTile(
+                     leading: Icon(Icons.date_range),
+                     title: Text('Fecha de Visita'),
+                     subtitle: Text(fisioProvider.elements[index].fecha.toString()),
+                   )
+                  ],
+                )));
   }
 }

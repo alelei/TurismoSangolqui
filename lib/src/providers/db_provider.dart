@@ -26,7 +26,8 @@ class DBProvider {
         CREATE TABLE FisioElements(
           id  INTEGER PRIMARY KEY,
           place_name TEXT,          
-          coment TEXT
+          coment TEXT,
+          fecha DATETIME
         )      
       ''');
     });
