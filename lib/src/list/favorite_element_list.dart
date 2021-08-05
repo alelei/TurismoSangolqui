@@ -26,9 +26,7 @@ class _FavoriteElementListState extends State<FavoriteElementList> {
             itemBuilder: (_, index) => Card(
                 child: ListTile(
                     leading: Icon(Icons.medical_services),
-                    title: Text(fisioProvider.elements[index].name),
-                    trailing: fisioProvider.elements[index].active
-                        ? Icon(Icons.radio_button_checked)
-                        : Icon(Icons.radio_button_unchecked))));
+                    title: Text(fisioProvider.elements[index].place_name),
+                    subtitle: Text(fisioProvider.elements[index].coment))));
   }
 }

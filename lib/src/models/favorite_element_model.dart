@@ -12,25 +12,25 @@ String fisioElementToJson(FavoriteElement data) => json.encode(data.toJson());
 class FavoriteElement {
   FavoriteElement({
     this.id,
-    required this.name,
-    required this.active,
+    required this.place_name,
+    required this.coment,
   });
 
   int? id;
-  String name;
-  bool active;
+  String place_name;
+  String coment;
 
-  FavoriteElement.create(this.name, this.active);
+  FavoriteElement.create(this.place_name, this.coment);
 
   factory FavoriteElement.fromJson(Map<String, dynamic> json) => FavoriteElement(
         id: json["id"],
-        name: json["name"],
-        active: json["active"] == 1,
+        place_name: json["place_name"],
+        coment: json["coment"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": name,
-        "active": active,
+        "place_name": place_name,
+        "coment": coment,
       };
 }

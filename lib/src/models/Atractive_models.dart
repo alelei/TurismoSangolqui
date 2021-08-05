@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' ;
 
 Atractive atractivesFromJson(String str) => Atractive.fromJson(json.decode(str));
 String atractivesToJson(Atractive data) => json.encode(data.toJson());

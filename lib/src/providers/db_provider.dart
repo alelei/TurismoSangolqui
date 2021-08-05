@@ -19,14 +19,14 @@ class DBProvider {
 
   Future<Database> initDb() async {
     Directory appDir = await getApplicationDocumentsDirectory();
-    final path = join(appDir.path, 'TrackMedical.db');
+    final path = join(appDir.path, 'Turismo.db');
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
       await db.execute('''
         CREATE TABLE FisioElements(
           id  INTEGER PRIMARY KEY,
-          name TEXT,          
-          active BOOLEAN
+          place_name TEXT,          
+          coment TEXT
         )      
       ''');
     });

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:turismosangolqui/src/pages/main_page.dart';
+import 'package:turismosangolqui/src/providers/fisio_elements_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<FisioElementProvider>(
+        create: (_) => FisioElementProvider()),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
