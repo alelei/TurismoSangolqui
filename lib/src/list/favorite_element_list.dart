@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:turismosangolqui/src/providers/fisio_elements_provider.dart';
+import 'package:turismosangolqui/src/providers/favorite_elements_provider.dart';
 
 class FavoriteElementList extends StatefulWidget {
   FavoriteElementList({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class _FavoriteElementListState extends State<FavoriteElementList> {
   @override
   Widget build(BuildContext context) {
     final fisioProvider =
-        Provider.of<FisioElementProvider>(context, listen: false);
+        Provider.of<FavoriteElementProvider>(context, listen: false);
     fisioProvider.loadElements();
 
     return fisioProvider.elements.length == 0

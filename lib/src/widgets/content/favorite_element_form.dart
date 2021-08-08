@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turismosangolqui/src/models/Place_models.dart';
 import 'package:turismosangolqui/src/models/favorite_element_model.dart';
-import 'package:turismosangolqui/src/providers/fisio_elements_provider.dart';
+import 'package:turismosangolqui/src/providers/favorite_elements_provider.dart';
 import 'package:turismosangolqui/src/services/places_service.dart';
 import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 
@@ -190,7 +190,7 @@ class _FavoriteElementFormState extends State<FavoriteElementForm> {
     formKey.currentState!.save();
 
     final fisioProvider =
-        Provider.of<FisioElementProvider>(context, listen: false);
+        Provider.of<FavoriteElementProvider>(context, listen: false);
     fisioProvider
         .addElement(_element.place_name, _element.coment, _element.fecha)
         .then((value) {

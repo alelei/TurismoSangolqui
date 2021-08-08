@@ -38,16 +38,16 @@ class AtractiveCard extends StatelessWidget {
                     leading: Icon(
                       Icons.date_range,
                       color: Theme.of(context).accentColor,
-                    ), 
+                    ),
                   ),
                 ]),
               ),
               Column(
                 children: [
                   Container(
-                      margin: EdgeInsets.only(top: 0),
-                      height: 130,
-                      width: 200,
+                      margin: EdgeInsets.only(top: 5),
+                      height: MediaQuery.of(context).size.height / 6,
+                      width: MediaQuery.of(context).size.width / 2,
                       decoration: BoxDecoration(
                           border: Border.all(
                             color: Theme.of(context).primaryColor,
@@ -58,7 +58,7 @@ class AtractiveCard extends StatelessWidget {
                               image: NetworkImage(
                                 currentAtractive.photo.toString(),
                               ),
-                              fit: BoxFit.fitWidth))),
+                              fit: BoxFit.fill))),
                 ],
               ),
             ]),

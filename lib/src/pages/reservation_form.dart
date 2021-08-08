@@ -293,7 +293,7 @@ class _ReservationFormState extends State<ReservationForm> {
                       'Escoger Fecha',
                       style: TextStyle(color: Colors.black),
                     ),
-                    color: Theme.of(context).primaryColor.withBlue(200),
+                    color: Theme.of(context).primaryColor.withGreen(200),
                   ),
                 ),
               ],
@@ -330,7 +330,7 @@ class _ReservationFormState extends State<ReservationForm> {
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
-                    color: Theme.of(context).primaryColor.withBlue(200),
+                    color: Theme.of(context).primaryColor.withGreen(200),
                   ),
                 ),
               ],

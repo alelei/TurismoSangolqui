@@ -16,5 +16,10 @@ List<ItemMenu> menuOptions = [
   ItemMenu.create(Icons.people, "Sitios Favoritos"),
 
 ];
+List<ItemMenu> settingsOptions = [
+  ItemMenu(Icons.settings, "Configuración"),
+  ItemMenu(Icons.supervised_user_circle, "Créditos")
+];
+
 
 List<Widget> contentWidget = [HomeWidget(), ReservationUserWidget(),FavoriteElementPage()];

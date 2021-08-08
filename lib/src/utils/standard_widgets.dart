@@ -50,14 +50,11 @@ class Standard {
 
   static Widget titleToForm(
       BuildContext context, String title, TextAlign position) {
-    Color _color = Theme.of(context).cardColor;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 0.0),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.headline6!.apply(
-              color: _color,
-            ),
+        style: Theme.of(context).textTheme.headline6,
         textAlign: position,
       ),
     );
