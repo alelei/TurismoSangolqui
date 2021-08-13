@@ -41,7 +41,7 @@ class _AtractiveListState extends State<AtractiveList> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Standard.getBoard(context, 'Descargando Atractivos',
-                              (Icons.download))
+                              (Icons.download_done))
                         ],
                       ),
                     ),

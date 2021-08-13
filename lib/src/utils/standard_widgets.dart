@@ -96,7 +96,7 @@ class Standard {
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.subtitle1),
                 ),
-                icon == Icons.download
+                icon == icon
                     ? Container(
                         margin: EdgeInsets.all(14.0),
                         height: 35.0,
@@ -123,8 +123,9 @@ class Standard {
   }
 
   static Widget getInfoLine(
-      BuildContext context, String title, String subtitle) {
+      BuildContext context, String title, String subtitle, IconData icon) {
     return ListTile(
+      leading: Icon(icon, color: Theme.of(context).primaryColorDark),
       title: Text(title, style: Theme.of(context).textTheme.bodyText2),
       subtitle: Text(subtitle, style: Theme.of(context).textTheme.headline6),
     );

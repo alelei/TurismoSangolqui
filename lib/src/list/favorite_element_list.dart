@@ -23,19 +23,23 @@ class _FavoriteElementListState extends State<FavoriteElementList> {
         : ListView.builder(
             shrinkWrap: true,
             itemCount: fisioProvider.elements.length,
-            itemBuilder: (_, index) => Card(
-                child: Column(
-                  children: [
-                    ListTile(
-                        leading: Icon(Icons.medical_services),
-                        title: Text(fisioProvider.elements[index].place_name),
-                        subtitle: Text(fisioProvider.elements[index].coment)),
-                   ListTile(
-                     leading: Icon(Icons.date_range),
-                     title: Text('Fecha de Visita'),
-                     subtitle: Text(fisioProvider.elements[index].fecha.toString()),
-                   )
-                  ],
-                )));
+            itemBuilder: (_, index) => Container(
+                  margin: EdgeInsets.all(4),
+                  child: Card(
+                      child: Column(
+                    children: [
+                      ListTile(
+                          leading: Icon(Icons.gps_fixed),
+                          title: Text(fisioProvider.elements[index].place_name),
+                          subtitle: Text(fisioProvider.elements[index].coment)),
+                      ListTile(
+                        leading: Icon(Icons.date_range),
+                        title: Text('Fecha de Visita'),
+                        subtitle: Text(
+                            fisioProvider.elements[index].fecha.toString()),
+                      )
+                    ],
+                  )),
+                ));
   }
 }

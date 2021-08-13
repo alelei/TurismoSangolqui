@@ -38,15 +38,15 @@ class _AtractivePageState extends State<AtractivePage> {
           child: Column(children: [
             Container(
                 padding: EdgeInsets.only(top: 72),
-                height: 400,
+                height: 450,
                 child: widget.atractive.photo == null
                     ? Image.asset("assets/images/user.png")
                     : Container(
-                        margin: EdgeInsets.all(0),
+                        margin: EdgeInsets.all(5),
                         height: 200,
                         width: 250,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(3),
+                            borderRadius: BorderRadiusDirectional.circular(2),
                             boxShadow: [
                               BoxShadow(
                                   color: Theme.of(context)

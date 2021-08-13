@@ -18,7 +18,6 @@ class _AtractivesWidgetState extends State<AtractivesWidget> {
             ListTile(
               title: Standard.titleToForm(
                   context, widget.name.toUpperCase(), TextAlign.center),
-              trailing: const Icon(Icons.add),
             )),
         body: SingleChildScrollView(
           child: AtractiveList(),

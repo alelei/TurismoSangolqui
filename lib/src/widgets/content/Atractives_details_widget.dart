@@ -42,7 +42,7 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [_detail(), _treatments()],
+        children: [_detail(), _localitation()],
       ),
     );
   }
@@ -60,24 +60,13 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
     );
   }
 
-  _treatments() {
-    Color _color = Theme.of(context).canvasColor;
+  _localitation() {
 
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 14.0),
-          child: ElevatedButton.icon(
-              onPressed: () => {},
-              icon: Icon(Icons.add_box, color: _color),
-              label: Container(
-                padding: const EdgeInsets.symmetric(vertical: 7.0),
-                child: Text("Agregar nuevo",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.apply(color: _color)),
-              )),
+          child: Text(''),
         ),
         Container(
             child: SingleChildScrollView(

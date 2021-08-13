@@ -26,14 +26,10 @@ class _FavoriteElementFormState extends State<FavoriteElementForm> {
   bool _onSaving = false;
   DateTime _selectedDate = DateTime.now();
 
-  List<String> _typesElement = ['Activo', 'Inactivo'];
-  String _typeValue = "";
-
   @override
   void initState() {
     super.initState();
     _loadTypePlaces();
-    _typeValue = _typesElement.elementAt(0);
     _element = FavoriteElement.create('Parque Central', '', _selectedDate);
   }
 
@@ -45,6 +41,7 @@ class _FavoriteElementFormState extends State<FavoriteElementForm> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 18),
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             width: size.width * .80,
             decoration: BoxDecoration(
@@ -121,7 +118,7 @@ class _FavoriteElementFormState extends State<FavoriteElementForm> {
                       'Escoger Fecha',
                       style: TextStyle(color: Colors.black),
                     ),
-                    color: Theme.of(context).primaryColor.withBlue(200),
+                    color: Theme.of(context).primaryColor.withGreen(200),
                   ),
                 ),
               ],
@@ -135,13 +132,13 @@ class _FavoriteElementFormState extends State<FavoriteElementForm> {
   _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(), // Refer step 1
+      initialDate: selectedDate, // Refer step 1
       firstDate: DateTime.now(),
       lastDate: DateTime(2025),
     );
-    if (picked != null && picked != _selectedDate)
+    if (picked != null && picked != selectedDate)
       setState(() {
-        _selectedDate = picked;
+        selectedDate = picked;
       });
   }
 
