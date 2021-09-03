@@ -34,9 +34,12 @@ class ReservationCard extends StatelessWidget {
                       title: Text('Nombre:'),
                       subtitle: Text(
                         currentReservation.name,
-                        style: TextStyle(color: Theme.of(context).primaryColor),
+                        
                       ),
-                      leading: Icon(Icons.description_sharp),
+                      leading: Icon(Icons.description_sharp,
+                        color: Theme.of(context).accentColor,
+                      ),
+                      
                     ),
                     ListTile(
                       title: Text('Horario:'),
@@ -44,7 +47,9 @@ class ReservationCard extends StatelessWidget {
                         currentReservation.horario,
                         style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
-                      leading: Icon(Icons.date_range_rounded),
+                      leading: Icon(Icons.date_range_rounded,
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
                     ListTile(
                       title: Text('Precio:'),

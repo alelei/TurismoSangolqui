@@ -12,12 +12,14 @@ String fisioElementToJson(FavoriteElement data) => json.encode(data.toJson());
 class FavoriteElement {
   FavoriteElement({
     this.id,
+    // ignore: non_constant_identifier_names
     required this.place_name,
     required this.coment,
     required this.fecha,
   });
 
   int? id;
+  // ignore: non_constant_identifier_names
   String place_name;
   String coment;
   DateTime fecha;

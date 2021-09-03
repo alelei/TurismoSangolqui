@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "796613400571",
+    "firebase_url": "https://espe-sangolqui-turismo-default-rtdb.firebaseio.com",
+    "project_id": "espe-sangolqui-turismo",
+    "storage_bucket": "espe-sangolqui-turismo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796613400571:android:ab6eb2d0eeb9d5976bdd5e",
+        "android_client_info": {
+          "package_name": "com.vega.alex5240.turismosangolqui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796613400571-lhrsda5bahv56t8lcrc0gko3ii6frimg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1fZTAC63ACsZUmkGWiQQuUJdt6uoyjuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796613400571-lhrsda5bahv56t8lcrc0gko3ii6frimg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

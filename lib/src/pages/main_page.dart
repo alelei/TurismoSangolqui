@@ -1,41 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turismosangolqui/src/list/ReservationList.dart';
-import 'package:turismosangolqui/src/pages/settings_page.dart';
 import 'package:turismosangolqui/src/providers/app_provider.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';
-import 'package:turismosangolqui/src/utils/standard_widgets.dart';
 
-class MainPage extends StatefulWidget {
+
+class MainPage extends StatelessWidget {
   const MainPage({Key? key, required this.titulo}) : super(key: key);
   final String titulo;
-
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  int selectedIndex = 0;
-
+ 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context, listen: false);
+    final appProvider = Provider.of<AppProvider>(context, listen: true);
     int selectedPage = appProvider.selectedPage;
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Standard.titleToForm(
-          context,
-          selectedPage == 0 ? widget.titulo : menuOptions[selectedPage].label,
-          TextAlign.center,
-        ),
-        actions: [
+        title:             Text(selectedPage == 0 ? titulo : menuOptions[selectedPage].label),
+
+          actions: [
           PopupMenuButton<ItemMenu>(
             onSelected: (value) {
               if (value.label == "Configuración") {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingsPage()));
+                Navigator.pushNamed(context, "/settings");
+               
               }
             },
             itemBuilder: (BuildContext context) {

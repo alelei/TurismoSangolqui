@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:provider/provider.dart';
+import 'package:turismosangolqui/src/models/User_models.dart';
 import 'package:turismosangolqui/src/providers/app_provider.dart';
 import 'package:turismosangolqui/src/utils/user_shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool? darkModePrefs = null;
+  late User user;
 
   @override
   void initState() {
     super.initState();
-    _loadDarkModePrefs();
+    _loadUser();
   }
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context, listen: false);
+    final prefs = new Preferences();
+    final appProvider = Provider.of<AppProvider>(context, listen: true);
 
     return Scaffold(
       appBar: AppBar(
@@ -31,28 +34,45 @@ class _SettingsPageState extends State<SettingsPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          darkModePrefs == null
+          Card(
+            elevation: 5.0,
+            child: ListTile(
+              title: Text("Modo obscuro",
+                  style: Theme.of(context).textTheme.bodyText1),
+              subtitle: Text(
+                  "El modo obscuro tiene un fondo opaco con un constrate de letras claro.",
+                  style: Theme.of(context).textTheme.caption),
+              leading: Checkbox(
+                  value: appProvider.darkMode,
+                  onChanged: (value) {
+                    appProvider.darkMode = value ?? false;
+                    prefs.mode = value ?? false;
+                    setState(() {});
+                    if (value == true) {
+                      print("Modo nocturno activado");
+                    } else {
+                      print("Modo nocturno desactivado");
+                    }
+                  }),
+            ),
+          ),
+          appProvider.token == ""
               ? Container()
               : Card(
                   elevation: 5.0,
                   child: ListTile(
-                    title: Text("Modo oscuro",
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        prefs.token = "";
+                        appProvider.token = "";
+                        Navigator.pop(context);
+                      },
+                    ),
+                    title: Text(user.name ?? "",
                         style: Theme.of(context).textTheme.bodyText1),
-                    subtitle: Text(
-                        "El modo oscuro tiene un fondo opaco con un constrate de letras claro.",
+                    subtitle: Text(user.email ?? "",
                         style: Theme.of(context).textTheme.caption),
-                    leading: Checkbox(
-                        value: darkModePrefs,
-                        onChanged: (value) {
-                          appProvider.darkMode = value ?? false;
-                          setDarkMode(value ?? false);
-                          if (value == true) {
-                            print("Modo nocturno activado");
-                          } else {
-                            print("Modo nocturno desactivado");
-                          }
-                          Navigator.pop(context);
-                        }),
                   ),
                 )
         ],
@@ -60,8 +80,11 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  _loadDarkModePrefs() async {
-    darkModePrefs = await getDarkMode();
+  _loadUser() async {
+    final prefs = new Preferences();
+    Map<String, dynamic> decodedToken = JwtDecoder.decode(prefs.token);
+    user = User.fromJson(decodedToken);
     setState(() {});
   }
 }
+
