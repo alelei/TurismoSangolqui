@@ -29,7 +29,7 @@ class BackgroundWidget extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: ExactAssetImage("assets/images/background.png"),
+                  image: ExactAssetImage("assets/images/background.jpg"),
                   repeat: ImageRepeat.repeat),
               gradient: LinearGradient(colors: [
                 Theme.of(context).primaryColor,

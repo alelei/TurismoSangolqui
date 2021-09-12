@@ -18,13 +18,17 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('Handling a background message ${message.messageId}');
 }
+
 late AndroidNotificationChannel channel;
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   if (!kIsWeb) {
     channel = const AndroidNotificationChannel(
@@ -51,11 +55,15 @@ Future<void> main() async {
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  final textController = TextEditingController();
+
   final prefs = new Preferences();
 
   @override
@@ -95,30 +103,29 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    
     final appProvider = Provider.of<AppProvider>(context, listen: true);
     appProvider.init(prefs.token, prefs.mode);
-    return LoginProvider(
+     return LoginProvider(
         child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Turismo Sangolquí',
-            home: appProvider.token == ""
-                ? const LoginPage()
-                : JwtDecoder.isExpired(appProvider.token)
-                    ? const LoginPage()
-                    : const MainPage(titulo: "Turismo Sangolquí"),
-            routes: {
-              "/login": (context) => const LoginPage(),
-              "/singUp": (context) => const SingUpPage(),
-              "/settings": (context) => const SettingsPage(),
-            },
-            theme: ThemeData(
-                brightness: appProvider.darkMode == true
-                    ? Brightness.dark
-                    : Brightness.light,
-                primaryColor: Colors.lime.shade500,
-                accentColor: Colors.green.shade500, 
-                primarySwatch: Colors.lime),
-                ));
+      debugShowCheckedModeBanner: false,
+      title: 'Turismo Sangolquí',
+      home: appProvider.token == ""
+          ? const LoginPage()
+          : JwtDecoder.isExpired(appProvider.token)
+              ? const LoginPage()
+              : const MainPage(titulo: "Turismo Sangolquí"),
+      routes: {
+        "/login": (context) => const LoginPage(),
+        "/singUp": (context) => const SingUpPage(),
+        "/settings": (context) => const SettingsPage(),
+      },
+      theme: ThemeData(
+          brightness:
+              appProvider.darkMode == true ? Brightness.dark : Brightness.light,
+          primaryColor: Colors.lime.shade500,
+          accentColor: Colors.green.shade500,
+          primarySwatch: Colors.lime),
+    ));
   }
 }
-

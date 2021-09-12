@@ -12,6 +12,7 @@ class Atractive {
     this.photo,
     
   });
+  static const String collectionId = 'atractive';
 
 
   String name;

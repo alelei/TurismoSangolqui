@@ -47,12 +47,17 @@ class LoginPage extends StatelessWidget {
                         SizedBox(height: 25.0),
                         SubmitButtonControl(),
                         SizedBox(height: 25.0),
-                      ])),
-                  TextButton(
+
+
+                       ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, "/singUp");
                       },
                       child: Text("Registrarse"))
+                      ])
+                      
+                      ),
+                  
                 ],
               ),
             )
@@ -76,7 +81,7 @@ class EmailTextControl extends StatelessWidget {
             decoration: InputDecoration(
                 icon: Icon(Icons.email,
                     color: Theme.of(context).primaryColorDark),
-                hintText: 'usuario@trackmedical.com',
+                hintText: 'usuario@turismo.com',
                 labelText: 'Correo electrónico',
                 errorText: snapshot.error?.toString()),
             onChanged: bloc.changeEmail);

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turismosangolqui/src/list/ReservationList.dart';
+import 'package:turismosangolqui/src/list/firestore_food.dart';
 import 'package:turismosangolqui/src/providers/app_provider.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';
 
-
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key, required this.titulo}) : super(key: key);
+  
+  const MainPage({Key? key, required this.titulo }) : super(key: key);
+  
   final String titulo;
- 
+  
+
   @override
   Widget build(BuildContext context) {
     final appProvider = Provider.of<AppProvider>(context, listen: true);
@@ -17,14 +20,13 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title:             Text(selectedPage == 0 ? titulo : menuOptions[selectedPage].label),
-
-          actions: [
+        title:
+            Text(selectedPage == 0 ? titulo : menuOptions[selectedPage].label),
+        actions: [
           PopupMenuButton<ItemMenu>(
             onSelected: (value) {
               if (value.label == "Configuración") {
                 Navigator.pushNamed(context, "/settings");
-               
               }
             },
             itemBuilder: (BuildContext context) {
@@ -53,9 +55,7 @@ class MainPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ReservationList(
-                            name: 'Reservas',
-                          )),
+                      builder: (context) => FoodList()),
                 );
               },
               child: const Icon(Icons.add),

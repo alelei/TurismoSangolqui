@@ -48,7 +48,7 @@ class AtractiveCard extends StatelessWidget {
                       image: DecorationImage(
                           image:
                               NetworkImage(currentAtractive.photo.toString()),
-                          fit: BoxFit.fill),
+                          fit: BoxFit.fill,),
                       border: Border.all(
                         color: Theme.of(context).accentColor,
                         width: 1,
