@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:turismosangolqui/src/pages/food_page.dart';
 
 class FoodCard extends StatelessWidget {
   const FoodCard({Key? key, required this.currentPlace}) : super(key: key);
