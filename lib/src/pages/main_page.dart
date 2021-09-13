@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:turismosangolqui/src/list/ReservationList.dart';
 import 'package:turismosangolqui/src/list/firestore_food.dart';
 import 'package:turismosangolqui/src/providers/app_provider.dart';
 import 'package:turismosangolqui/src/utils/enums.dart';

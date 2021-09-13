@@ -9,7 +9,7 @@ class FoodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 400,
       child: Column(
         children: [
           StreamBuilder(
@@ -37,10 +37,11 @@ class FoodCard extends StatelessWidget {
                           },
                           subtitle: Row(children: [
                             Expanded(
+                              flex: 2,
                               child: Column(children: [
                                 ListTile(
                                   title: Text('Descripción:'),
-                                  subtitle: Text(foods['description']),
+                                  subtitle: Text(foods['description'], ),
                                 ),
                               ]),
                             ),
@@ -55,13 +56,36 @@ class FoodCard extends StatelessWidget {
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width /
-                                                2.5,
-                                            child: Image.network(
-                                              foods['photo'].toString(),
-                                              fit: BoxFit.fill,
-                                              height: 230,
-                                              width: 200,
+                                                3,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(9),
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                    foods['photo'].toString()),
+                                                fit: BoxFit.fill,
+                                              ),
+                                              border: Border.all(
+                                                color: Theme.of(context)
+                                                    .accentColor,
+                                                width: 1,
+                                              ),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Theme.of(context)
+                                                      .primaryColorDark, //color of shadow
+                                                  spreadRadius:
+                                                      1, //spread radius
+                                                  blurRadius: 2, // blur radius
+                                                  offset: Offset(1,
+                                                      2), // changes position of shadow
+                                                  //first paramerter of offset is left-right
+                                                  //second parameter is top to down
+                                                ),
+                                                //you can set more BoxShadow() here
+                                              ],
                                             ),
+                                            
                                           )
                                         : Image.asset(
                                             "assets/images/user.png",

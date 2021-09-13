@@ -8,6 +8,7 @@ import 'package:turismosangolqui/src/list/Items_Menu.dart';
 import 'package:turismosangolqui/src/list/PlacesList.dart';
 import 'package:turismosangolqui/src/list/ReservationList.dart';
 import 'package:turismosangolqui/src/models/Atractive_models.dart';
+import 'package:turismosangolqui/src/services/atractives_service.dart';
 import 'package:turismosangolqui/src/widgets/content/Atractive_widget.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -20,7 +21,10 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-   Set<Marker> _markers = new Set();
+   
+  final AtractiveService _service = AtractiveService();
+  List<Atractive>? _atractives = null;
+  Set<Marker> _markers = new Set();
 
     Completer<GoogleMapController> _controller = Completer();
 
@@ -29,24 +33,18 @@ class _HomeWidgetState extends State<HomeWidget> {
     zoom: 18,
   );
   @override
+  void initState() {
+    super.initState();
+    _loadPacients();
+  }
+  @override
   Widget build(BuildContext context) {
     double _heigth = MediaQuery.of(context).size.height;
     print("Altura:$_heigth");
     return SingleChildScrollView(
       child: Column(
         children: [
-          Text("Ubicación actual", style: Theme.of(context).textTheme.bodyText1),
-        SizedBox(
-            height: _heigth * 0.5,
-            child: GoogleMap(
-              markers: _markers,
-              mapType: MapType.hybrid,
-              initialCameraPosition: _kCentroLatacunga,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-            )),
-          ItemsMenu(
+                   ItemsMenu(
             title: ("Atractivos".toUpperCase()),
             image: ("assets/images/Atractivos.jpg"),
             method: AtractivesWidget(name: 'Atractivos Turísticos'),
@@ -81,5 +79,24 @@ class _HomeWidgetState extends State<HomeWidget> {
         ],
       ),
     );
+    
+  }
+   _loadPacients() {
+    _service.getAtractive().then((value) {
+      _atractives = value;
+      _atractives!.forEach((element) {
+        if (element.georeference != null) {
+          Marker mark = new Marker(
+              markerId: MarkerId(element.name),
+              infoWindow: InfoWindow(title: element.name),
+              position: element.georeference!.getGeo());
+          _markers.add(mark);
+        }
+      });
+
+      if (mounted) {
+        setState(() {});
+      }
+    });
   }
 }
