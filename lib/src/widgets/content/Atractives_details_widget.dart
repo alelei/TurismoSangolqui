@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:turismosangolqui/src/models/Atractive_models.dart';
 
 class AtractiveDetailsWidget extends StatefulWidget {
@@ -11,7 +14,13 @@ class AtractiveDetailsWidget extends StatefulWidget {
 }
 
 class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
+
     with SingleTickerProviderStateMixin {
+       Completer<GoogleMapController> _controller = Completer();
+        static final CameraPosition _kCentroLatacunga = CameraPosition(
+    target: LatLng(-0.48322009356849516, -78.43221998739993),
+    zoom: 18,
+  );
   static const List<Tab> myTabs = <Tab>[
     Tab(text: 'Detalles'),
     Tab(text: 'Localización'),
@@ -33,6 +42,8 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Scaffold(
       appBar: TabBar(
         labelColor: Theme.of(context).accentColor,
@@ -69,9 +80,22 @@ class _AtractiveDetailsWidgetState extends State<AtractiveDetailsWidget>
           child: Text(''),
         ),
         Container(
-            child: SingleChildScrollView(
-                // child: TreatmentList(idpacient: widget.pacient.idpatient)))
-                ))
+            child: Column(
+              
+                children: [Text("Ubicación actual", style: Theme.of(context).textTheme.bodyText1),
+        Expanded(
+           
+            child: Container(
+               height:MediaQuery.of(context).size.height * 0.5,
+              child: GoogleMap(              
+                mapType: MapType.hybrid,
+                initialCameraPosition: _kCentroLatacunga,
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                },
+              ),
+            )),
+                  ]  ))
       ],
     );
   }

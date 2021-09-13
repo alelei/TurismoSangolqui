@@ -46,7 +46,12 @@ dependencies:
   google_maps_flutter: ^2.0.8
   firebase_messaging: ^10.0.6
   flutter_local_notifications: ^8.1.1+2
+<<<<<<< HEAD
   splashscreen: ^1.3.5
+=======
+  location: ^4.3.0
+  permission: ^0.1.7
+>>>>>>> 0d7767c6c5092dfb89ee5de6954b1aa7f73a2021
   # google_maps_flutter: ^2.0.8
 dependency_overrides:
   plugin_platform_interface: ^2.0.1
