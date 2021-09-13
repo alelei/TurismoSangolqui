@@ -28,14 +28,11 @@ class _AtractiveListState extends State<AtractiveList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Theme.of(context).cardColor,
-        child: _atractive.length == 0
-            ? Column(
-                children: [
-                  Center(
-                    child: Container(
-                      height: MediaQuery.of(context).size.height,
+    return  Container(
+          color: Theme.of(context).cardColor,
+          child: _atractive.length == 0
+              ? 
+                    Container(
                       color: Theme.of(context).cardColor,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -44,17 +41,18 @@ class _AtractiveListState extends State<AtractiveList> {
                               (Icons.download_done))
                         ],
                       ),
-                    ),
-                  ),
-                ],
-              )
-            : Container(
-                child: Column(
-                    // mainAxisAlignment : MainAxisAlignment.center,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    children: _atractive
-                        .map((e) => AtractiveCard(currentAtractive: e))
-                        .toList())));
+                    
+                  
+                )
+              : 
+                Column(
+                        // mainAxisAlignment : MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        children: _atractive
+                            .map((e) => AtractiveCard(currentAtractive: e))
+                            .toList())
+              
+    );
   }
 
   _loadAtractive() {

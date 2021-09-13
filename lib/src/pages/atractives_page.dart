@@ -32,7 +32,7 @@ class _AtractivePageState extends State<AtractivePage> {
         ),
         backgroundColor: Theme.of(context).primaryColor.withOpacity(0.68),
         pinned: true,
-        expandedHeight: 500.0,
+        expandedHeight: 480.0,
         flexibleSpace: FlexibleSpaceBar(
             background: Container(
           child: Column(children: [
